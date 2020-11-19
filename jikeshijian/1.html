@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{message}}
+        <div :id='message'>
+        <todo-item :list='list'/>
+        </div>
+    </div>
+    <script src="../vuetrain/js/vue.js"></script>
+    <script>
+        Vue.component('todo-item',
+            {
+                // props:[
+                //     'list'
+                // ],
+                props:{
+                    list:Array
+                },
+                template:`<ul>
+            <li v-for='item in list' @click='sd'>
+                <span v-if='!item.del'>{{item.title}}</span>
+                <span v-else style="text-decoration: line-through">{{item.title}}</span>
+                <button  @click.stop='item.del =!item.del' >删除</button>
+            </li>
+        </ul>`,
+        methods: {
+            sd:function(){
+                console.log(
+                    'sds'
+                )
+            }
+        },
+            }
+        )
+        var vm = new Vue({
+            el: '#app', //el:挂载一个dom节点
+            data: {
+                message: 'hello world',
+                list:[
+                    {
+                        title:'1',
+                        del:false
+                    },{title:'2',del:false}
+                ]
+            },
+        })
+    </script>
+</body>
+
+</html>

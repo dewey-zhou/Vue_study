@@ -13,15 +13,14 @@
         <menu-item v-on:enlarge-text='handle'></menu-item>
 
     </div>
-    <script src="../js/vue.js"></script>
+    <script src="./js/vue.js"></script>
     <script>
         Vue.component('menu-item', {
-            data: function () {
-                return {
-                    msg: 'wa'
-                }
-            },
-
+            // data: function () {
+            //     return {
+            //         msg: 'wa'
+            //     }
+            // },
             template: `<div><button v-on:click='
             $emit("enlarge-text")
             '>扩大字体</button></div>`
